@@ -17,7 +17,7 @@ function Edit_Service() {
     const serviceToEdit = data.find((service) => service.id === parseInt(id));
 
     return (
-        <div className="bg-gradient-to-t from-[#e52325e6] to-[#e5232500] py-[50px] px-5 flex flex-col gap-5">
+        <div className="bg-gradient-to-t from-[#e52325e6] to-[#e5232500] py-[50px] px-5 h-[100%] flex flex-col gap-5">
             <MainButton
                 Icon={<HomeIcon />}
                 onClick={handleBack}
