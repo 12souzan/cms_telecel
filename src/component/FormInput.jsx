@@ -30,6 +30,7 @@ function FormInput({ handleChange, data, errors, countryOptions, types, setData,
               <DropDown
                 key={name}
                 label={label}
+                sx={{ width: '100%' , margin: "10px !important" }}
                 options={name === 'country' ? countryOptions : types}
                 onChange={(newValue) => setData({ ...data, [name]: newValue })}
                 value={data[name]}
