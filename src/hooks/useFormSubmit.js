@@ -45,7 +45,9 @@ const useFormSubmit = (data, setData, addService, updateService, nextId, setNext
         setData(INITIAL_VALUE);
 
       }
-      onClose();
+      if (onClose && typeof onClose === 'function') {
+        onClose();
+      }
       // console.log('next id', nextId);
     }
   };
