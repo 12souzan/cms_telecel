@@ -1,4 +1,4 @@
-import dummyData from './env'
+const dummyData = require('./env');
 const express = require('express');
 const cors = require('cors');
 
