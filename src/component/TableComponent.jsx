@@ -6,7 +6,7 @@ import { StripedDataGrid, tableStyle } from '../utils/style';
 import ConfirmationDialog from './Dialog';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from 'react-router-dom';
-import CustomPagination from './customPagination';
+import CustomPagination from './CustomPagination';
 
 
 
