@@ -29,7 +29,7 @@ function ServiceForm({ initialValues }) {
   return (
     <Box sx={{ maxWidth: 700, boxShadow: 3, borderRadius: 3, background: 'white' }}>
       <form className="flex gap-6 items-center flex-col justify-center p-5" onSubmit={handleFormSubmit}>
-        <SiteLogo className='w-1/2'/>
+        {/* <SiteLogo className='w-1/2'/> */}
         <FormInput handleChange={(e) => handleChangeData(e, setData)} data={data} errors={errors} countryOptions={countryOptions} types={types} setData={setData} fields={selectedFieldsByIndex}/>
         <MainButton
           Icon={<DownloadDoneIcon />}

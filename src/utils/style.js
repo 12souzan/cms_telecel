@@ -170,20 +170,20 @@ export const StripedDataGrid = styled(DataGrid)(() => ({
     },
     [`& .${gridClasses.row}.even`]: {
         backgroundColor: '#7b7b7b12',
-        '&:hover': {
-            backgroundColor: alpha('#e52325', 0.8),
-            '@media (hover: none)': {
-                backgroundColor: 'transparent',
-            },
-        },
-        '&.Mui-selected': {
-            backgroundColor: alpha('#e52325', 0.8),
-            '&:hover': {
-                backgroundColor: alpha('#e52325', 0.6),
-                '@media (hover: none)': {
-                    backgroundColor: alpha('#e52325', 0.8),
-                },
-            },
-        },
+        // '&:hover': {
+        //     backgroundColor: alpha('#e52325', 0.8),
+        //     '@media (hover: none)': {
+        //         backgroundColor: 'transparent',
+        //     },
+        // },
+        // '&.Mui-selected': {
+        //     backgroundColor: alpha('#e52325', 0.8),
+        //     '&:hover': {
+        //         backgroundColor: alpha('#e52325', 0.6),
+        //         '@media (hover: none)': {
+        //             backgroundColor: alpha('#e52325', 0.8),
+        //         },
+        //     },
+        // },
     },
 }));

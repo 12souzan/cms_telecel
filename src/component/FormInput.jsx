@@ -19,7 +19,7 @@ function FormInput({ handleChange, data, errors, countryOptions, types, setData,
                 type={type}
                 value={data[name] || ''}
                 onChange={handleChange}
-                sx={{ width: '100%' }}
+                sx={{ width: '100%' , margin: "10px !important" }}
                 error={!!errors[name]}
                 helperText={errors[name]}
                 disabled={disabled}
@@ -63,7 +63,7 @@ function FormInput({ handleChange, data, errors, countryOptions, types, setData,
                 name={name}
                 value={data[name] || ''}
                 onChange={handleChange}
-                sx={{ width: '100%' }}
+                sx={{ width: '100%' , margin: "10px !important" }}
                 error={!!errors[name]}
                 helperText={errors[name]}
                 disabled={disabled}

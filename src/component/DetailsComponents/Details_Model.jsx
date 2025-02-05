@@ -20,7 +20,7 @@ const Details_Model = ({ open, onClose, initialValues }) => {
 
 
     return (
-        <Dialog open={open} onClose={onClose}>
+        <Dialog open={open} onClose={onClose} >
             <DialogTitle>Edit Service</DialogTitle>
             <DialogContent>
                 <FormInput
@@ -31,6 +31,12 @@ const Details_Model = ({ open, onClose, initialValues }) => {
                     types={types}
                     setData={setData}
                     fields={fields}
+                    // sx={{
+                    //    ' .css-kw13he-MuiDialogContent-root': {
+ 
+                    //         overflowY: 'visible !important',
+                    //     }
+                    // }}
                 />
             </DialogContent>
             <DialogActions>
