@@ -25,7 +25,7 @@ const fields = [
   { label: 'Phone', name: 'phone', type: 'text' },
   { label: 'Country', name: 'country', type: 'dropdown' },
   { label: 'Service Type', name: 'serviceType', type: 'dropdown' },
-  { label: 'Last Updated', name: 'lastUpdated', disabled: true },
+  // { label: 'Last Updated', name: 'lastUpdated', disabled: true },
   { label: 'Website', name: 'website' },
   { label: 'Location', name: 'location' },
   { label: 'Contact Person', name: 'contactPerson' },
