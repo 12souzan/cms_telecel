@@ -1,5 +1,5 @@
 import React from 'react';
-import { Autocomplete, TextField, Box, ListItemIcon, ListItemText, FormControl, FormHelperText } from '@mui/material';
+import { Autocomplete, TextField, Box, ListItemIcon, ListItemText, FormControl } from '@mui/material';
 
 function DropDown({ label, options, onChange, value, countries, error, helperText }) {
   return (
@@ -8,24 +8,18 @@ function DropDown({ label, options, onChange, value, countries, error, helperTex
         <Autocomplete
           value={value || null}
           onChange={(_, newValue) => onChange(newValue)}
-          options={options}  
-          getOptionLabel={(option) => option.text || ""} 
+          options={options}
+          getOptionLabel={(option) => option.text || ""}
           isOptionEqualToValue={(option, val) => option.value === val.value}
           renderInput={(params) => (
             <TextField
               {...params}
               label={label}
-              variant="standard"
+              error={error}
+              helperText={helperText}
               sx={{
-                
-                '& .MuiInput-underline:before': {
-                  borderBottomColor: 'black',
-                },
-                '& .MuiInput-underline:hover:before': {
-                  borderBottomColor: 'black',
-                },
-                '& .MuiInput-underline.Mui-focused:before': {
-                  borderBottomColor: 'black',
+                '& .MuiInputBase-root': {
+                  padding: '8px 16px',
                 },
               }}
             />
@@ -47,7 +41,6 @@ function DropDown({ label, options, onChange, value, countries, error, helperTex
             </li>
           )}
         />
-        {error && helperText && <FormHelperText sx={{margin:0}}>{helperText}</FormHelperText>}
       </FormControl>
     </Box>
   );

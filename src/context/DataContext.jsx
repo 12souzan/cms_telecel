@@ -16,13 +16,16 @@ export const DataProvider = ({ children }) => {
     const [alertOpen, setAlertOpen] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
     const [alertSeverity, setAlertSeverity] = useState('success');
-    const [selectedOption, setSelectedOption] = useState("Name");
+    const [selectedOption, setSelectedOption] = useState("Last Updated");
     const [sortOrder, setSortOrder] = useState("asc");
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`${BaseUrl}/getAllServices`)
-            .then((response) => response.json())
-            .then((fetchedData) => {
+        const fetchData = async () => {
+            setLoading(true);
+            try {
+                const response = await fetch(`${BaseUrl}/getAllServices`);
+                const fetchedData = await response.json();
                 const mappedData = fetchedData.map((item) => ({
                     id: item.id,
                     name: item.name,
@@ -32,25 +35,25 @@ export const DataProvider = ({ children }) => {
                     phone: item.phone,
                     email: item.email,
                     lastUpdated: item.lastUpdated,
-                    website:item.website,
-                    location:item.location,
-                    contactPerson:item.contactPerson,
-                    operatingHours:item.operatingHours,
-                    Offered:item.servicesOffered,
-                    serviceRatings:item.ratings,
-                    serviceReviewsCount:item.reviewsCount,
-                    additionalNotes:item.additionalNotes
-
+                    website: item.website,
+                    location: item.location,
+                    contactPerson: item.contactPerson,
+                    operatingHours: item.operatingHours,
+                    Offered: item.servicesOffered,
+                    serviceRatings: item.ratings,
+                    serviceReviewsCount: item.reviewsCount,
+                    additionalNotes: item.additionalNotes
                 }));
                 setData(mappedData);
-                console.log(mappedData)
+                setLoading(false);
                 setNextId(mappedData.length + 1);
-                // console.log('mappedData lenght', mappedData.length)
-            })
-            .catch((err) => {
+            } catch (err) {
                 setError('Error fetching data.');
-            });
-        console.log('data', data)
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
     }, []);
 
     // Add a new service with an incremented ID
@@ -81,6 +84,11 @@ export const DataProvider = ({ children }) => {
 
     //EDIT service
     const updateService = (id, updatedService) => {
+        if (!updatedService || Object.keys(updatedService).length === 0) {
+            console.error('Updated Service is empty!', updatedService);
+            return;
+        }
+
         console.log('Updating service with ID:', id);
         console.log('Updated Service:', updatedService);
 
@@ -91,18 +99,19 @@ export const DataProvider = ({ children }) => {
             },
             body: JSON.stringify(updatedService),
         })
-            .then(response => {
-                console.log('Response status:', response.status);
+            .then(async response => {
+                const responseText = await response.text();
+                console.log("Full Response:", responseText);
                 if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
+                    throw new Error(`HTTP error! Status: ${response.status} - ${responseText}`);
                 }
-                return response.json();
+                return JSON.parse(responseText);
             })
             .then(data => {
                 console.log('Response data:', data);
-                setServices((prevServices) =>
-                    prevServices.map((service) =>
-                        service.id === id ? { ...service, ...updatedService } : service
+                setData(prevData =>
+                    prevData.map(service =>
+                        service.id === updatedService.id ? updatedService : service
                     )
                 );
                 setAlertMessage('Service updated successfully!');
@@ -116,6 +125,7 @@ export const DataProvider = ({ children }) => {
                 setAlertOpen(true);
             });
     };
+
 
     //delete service
     const handleDelete = (id) => {

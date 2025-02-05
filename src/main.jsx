@@ -15,6 +15,7 @@ const theme = createTheme({
     },
   },
 });
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <DataProvider>

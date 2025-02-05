@@ -141,7 +141,17 @@ app.post("/addService", (req, res) => {
 
 app.post("/editService/:id", (req, res) => {
     const { id } = req.params;
-    const { name, country, serviceType, status, phone , email, lastUpdated } = req.body;
+    const { name, country, serviceType, status, phone , email, lastUpdated ,
+         servicesOffered,
+        website ,
+        ratings,
+        reviewsCount,
+        location,
+        contactPerson,
+        operatingHours,
+        additionalNotes
+    
+    } = req.body;
 
     const index = services.findIndex(service => service.id === parseInt(id));
 

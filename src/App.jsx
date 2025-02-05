@@ -1,18 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Add_Service from './pages/Add_Service';
 import Service from './pages/Service';
-import AddNewService from './pages/AddNewService';
 import './index.css'
-import EditServicePage from './pages/EditServicePage';
-import ServiceDetails from './pages/ServiceDetails';
+import Edit_Service from './pages/Edit_Service';
+import Service_Details from './pages/Service_Details';
 
 function App() {
   return (
     <Router>
       <Routes>
           <Route path="/" element={<Service />}/>
-          <Route path="/add_service" element={<AddNewService/>}/> 
-          <Route path="/edit_service/:id" element={<EditServicePage/>} />
-          <Route path="/service_details/:id" element={<ServiceDetails/>} />
+          <Route path="/add_service" element={<Add_Service/>}/> 
+          <Route path="/edit_service/:id" element={<Edit_Service/>} />
+          <Route path="/service_details/:id" element={<Service_Details/>} />
         </Routes>
     </Router>
   )

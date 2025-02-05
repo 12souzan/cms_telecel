@@ -6,34 +6,19 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
 function ActionButtons({ onEdit, onDelete, onView }) {
   return (
-    <div className="flex gap-2">
+    <div className="flex">
       <Tooltip title="Edit">
-        <Button
-          onClick={onEdit}
-          className="!text-white !bg-[#5d9abd] !rounded-full !min-w-[35px] !h-[35px]"
-          variant="contained"
-          size="small"
-        >
+        <Button onClick={onEdit} className="!text-black !bg-transparent box-shadow-none !min-w-[30px]" size="small">
           <EditIcon className="!w-[20px] !h-[20px]" />
         </Button>
       </Tooltip>
-
       <Tooltip title="Delete">
-        <Button
-          onClick={onDelete}
-          className="!text-white !bg-[var(--primaryColor)] !rounded-full !min-w-[35px] !h-[37px]"
-          variant="contained"
-          size="small"
-        >
+        <Button onClick={onDelete} className="!text-[var(--primaryColor)] !bg-transparent box-shadow-none !min-w-[30px]" size="small">
           <DeleteIcon className="!w-[20px] !h-[20px]" />
         </Button>
       </Tooltip>
-
       <Tooltip title="View">
-        <Button
-          onClick={onView}
-          className="!text-white !bg-[#000000c2] !rounded-full !min-w-[35px] !h-[37px]"
-        >
+        <Button onClick={onView} className="!text-[#959595] !bg-transparent box-shadow-none !min-w-[30px]">
           <RemoveRedEyeIcon className="!w-[20px] !h-[20px]" />
         </Button>
       </Tooltip>

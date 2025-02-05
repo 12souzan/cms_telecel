@@ -7,8 +7,9 @@ import MainButton from "../component/MainButton";
 import HomeIcon from "@mui/icons-material/Home";
 import useBackNavigation from "../hooks/useBackNavigation";
 import AlertCustom from '../component/AlertCustom';
+import { customBackButton } from '../utils/style';
 
-function EditServicePage() {
+function Edit_Service() {
     const { id } = useParams();
     const handleBack = useBackNavigation()
     const { data } = useContext(DataContext);
@@ -16,13 +17,12 @@ function EditServicePage() {
     const serviceToEdit = data.find((service) => service.id === parseInt(id));
 
     return (
-        <div className="bg-[var(--bg-color)] pt-5 px-5 md:h-[105vh] flex flex-col gap-5">
+        <div className="bg-gradient-to-t from-[#e52325e6] to-[#e5232500] pt-5 px-5 md:h-[100vh] flex flex-col gap-5">
             <MainButton
                 Icon={<HomeIcon />}
                 onClick={handleBack}
-                variant="outlined"
                 buttonText="Back To Home"
-                className="md:!h-[50px] !w-full md:!w-fit"
+                sx={customBackButton}
             />
             <div className="items-center flex flex-col-reverse md:flex-row justify-center ">
                 <ServiceForm initialValues={serviceToEdit} />
@@ -32,4 +32,4 @@ function EditServicePage() {
     )
 }
 
-export default EditServicePage
+export default Edit_Service

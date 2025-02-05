@@ -18,7 +18,7 @@ function Service() {
         navigate('/add_service')
     }
     return (
-        <div className='bg-[#7573731f] h-[100vh] pb-5 flex flex-col items-center justify-centwe gap-11'>
+        <div className='bg-gradient-to-t from-[#e52325e6] to-[#e5232500] h-[100vh] pb-5 flex flex-col items-center justify-centwe gap-11'>
             {/* <SiteLogo className='md:w-[13%] md:h-[24%] w-[50%]' /> */}
             <div className=' flex flex-col md:gap-5  gap-2 w-[100%] px-[20px]  md:px-[100px]'>
                 <div className='flex gap-5 md:gap-2 items-center justify-between md:h-[50px] w-[100%] md:flex-row flex-col'>

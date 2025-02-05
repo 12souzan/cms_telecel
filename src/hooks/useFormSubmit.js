@@ -2,12 +2,13 @@ import { useState } from "react";
 import {validateForm} from './../utils/functions'
 import INITIAL_VALUE from "../../env";
 
-const useFormSubmit = (data, setData, addService, updateService, nextId, setNextId) => {
+const useFormSubmit = (data, setData, addService, updateService, nextId, setNextId , onClose) => {
   const [errors, setErrors] = useState({});
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-
+    
+    console.log("Submitting form with data:", data);
     const formErrors = validateForm(data);
     setErrors(formErrors);
 
@@ -20,7 +21,6 @@ const useFormSubmit = (data, setData, addService, updateService, nextId, setNext
           serviceType: data.serviceType?.text || data.serviceType,
         });
       }
-      
       
       else {
         addService({
@@ -45,6 +45,7 @@ const useFormSubmit = (data, setData, addService, updateService, nextId, setNext
         setData(INITIAL_VALUE);
 
       }
+      onClose();
       // console.log('next id', nextId);
     }
   };

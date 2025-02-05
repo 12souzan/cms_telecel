@@ -1,12 +1,15 @@
-import React, { useContext, useState } from 'react';
-import {Box} from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
+import React, { useContext, useEffect, useState } from 'react';
+import { Box } from '@mui/material';
 import ActionButtons from './ActionButtons';
 import DataContext from '../context/DataContext';
-import { tableStyle } from '../utils/style';
+import { StripedDataGrid, tableStyle } from '../utils/style';
 import ConfirmationDialog from './Dialog';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from 'react-router-dom';
+import CustomPagination from './customPagination';
+
+
+
 
 function TableComponent() {
   const {
@@ -16,23 +19,12 @@ function TableComponent() {
 
   const [selectedId, setSelectedId] = useState(null);
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate()
 
   const handleOpen = (id) => {
     setSelectedId(id);
     setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    setSelectedId(null);
-  };
-
-  const confirmDelete = () => {
-    if (selectedId) {
-      handleDelete(selectedId);
-    }
-    handleClose();
   };
 
   const columns = [
@@ -50,17 +42,37 @@ function TableComponent() {
       filterable: false,
       renderCell: (params) => (
         <ActionButtons
-        onEdit={() => navigate(`/edit_service/${params.row.id}`)}
-        onDelete={() => handleOpen(params.row.id)}
-        onView ={() =>navigate(`/service_details/${params.row.id}`)}
-        />
+          onEdit={() => navigate(`/edit_service/${params.row.id}`)}
+          onDelete={() => handleOpen(params.row.id)}
+          onView={() => navigate(`/service_details/${params.row.id}`)} />
       ),
     },
   ];
 
+
+  useEffect(() => {
+    if (data.length > 0) {
+      setLoading(false);
+    }
+  }, [data]);
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedId(null);
+  };
+
+  const confirmDelete = () => {
+    if (selectedId) {
+      handleDelete(selectedId);
+    }
+    handleClose();
+  };
+
+
+
   return (
     <Box sx={{ width: '100%' }}>
-      <DataGrid
+      <StripedDataGrid
         rows={data}
         columns={columns}
         disableRowSelectionOnClick
@@ -71,8 +83,21 @@ function TableComponent() {
             },
           },
         }}
+        slots={{
+          pagination: CustomPagination,
+        }}
         pageSizeOptions={[5]}
         sx={tableStyle}
+        getRowClassName={(params) =>
+          params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'odd'
+        }
+        loading={loading}
+        slotProps={{
+          loadingOverlay: {
+            variant: 'skeleton',
+            noRowsVariant: 'skeleton',
+          },
+        }}
       />
 
       <ConfirmationDialog

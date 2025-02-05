@@ -1,33 +1,19 @@
 //mui styles
 
-import { BorderRight } from "@mui/icons-material";
-import { Box, Button, ButtonGroup, CardContent, IconButton, Menu, styled, Typography } from "@mui/material";
+import { alpha, Box, Button, CardContent, IconButton, Menu, styled} from "@mui/material";
+import { DataGrid, gridClasses } from "@mui/x-data-grid";
 
-export const commonTextFieldStyles = {
-    marginBottom: 1,
-    width: 250,
+export const customBackButton = {
     background: 'transparent',
-    '& .MuiInput-underline:after': {
-        borderBottomColor: 'black',
-    },
-    '& .MuiInput-underline:hover:after': {
-        borderBottomColor: 'black',
-    },
-    '& .MuiInput-underline.Mui-focused:after': {
-        borderBottomColor: 'black',
-    },
-    '.MuiFormLabel-root': {
-        color: 'black',
-        left: '15px'
-    },
-    '.css-1ew92b2-MuiFormLabel-root-MuiInputLabel-root.Mui-focused': {
-        color: 'black',
-    },
-    '& .MuiInputBase-input': {
-        paddingLeft: '14px'
-    }
+    color: 'var(--primaryColor)',
+    height: '50px',
+    width: 'fit-content',
+    fontWeight: '600',
+    fontSize: '16px',
+    display: "flex",
+    alignItems: 'center'
+}
 
-};
 export const iconDesign = {
     background: "var(--primaryColor)",
     padding: "5px",
@@ -37,6 +23,7 @@ export const iconDesign = {
     width: '30px',
     height: '30px',
 }
+
 export const TitleBox = {
     display: "flex",
     justifyContent: "space-between",
@@ -44,11 +31,7 @@ export const TitleBox = {
     background: "#fce7e7",
     padding: "20px",
     borderRadius: "4px",
-    gap:'20px',
-}
-
-export const buttonStyle2 = {
-    color: 'var(--primaryColor)', border: '2px solid var(--primaryColor)'
+    gap: '20px',
 }
 
 export const customEditButton = {
@@ -59,28 +42,19 @@ export const customEditButton = {
     },
 }
 
-
-export const customTextField = {
-    '& .MuiInputLabel-root.Mui-focused': {
-        color: "black", 
-    },
-    '& .MuiOutlinedInput-root.Mui-focused': {
-        borderColor: "var(--primaryColor) ",
-    },
-    '& .MuiOutlinedInput-root.Mui-error': {
-        borderColor: "var(--primaryColor)",
-    },
-    '& .MuiInputLabel-root.Mui-error': {
-        color: "var(--primaryColor)",
-    },
-}
-
 export const activeSwitch = {
     ".css-17jyosd-MuiSwitch-thumb": {
         color: 'var(--primaryColor)'
     },
-    ".css-161ms7l-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track": {
+    ".css-k5b5m0-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track": {
         background: 'var(--primaryColor)'
+    }
+}
+
+export const paginationStyle = {
+    ' .css-1orqb88-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected ': {
+        backgroundColor: 'var(--primaryColor) !important',
+        color: '#ffffff',
     }
 }
 
@@ -127,17 +101,8 @@ export const tableStyle = {
     '.MuiDataGrid-cell:focus': {
         outline: 'none',
     },
-    '.css-1bgckiu-MuiDataGrid-main ': {
-        background: 'white'
-    },
     '.css-1gak8h1-MuiToolbar-root-MuiTablePagination-toolbar': {
         background: 'white',
-    },
-    '.css-11cfq65-MuiTablePagination-displayedRows': {
-        color: 'black',
-    },
-    '.css-h7cjts-MuiButtonBase-root-MuiIconButton-root': {
-        color: 'black',
     },
     '.MuiDataGrid-cell': {
         display: 'flex',
@@ -145,31 +110,6 @@ export const tableStyle = {
         justifyContent: 'center'
     },
 }
-
-export const CustomButton2 = styled(Button)({
-    backgroundColor: 'var(--primaryColor)',
-    color: 'white',
-    borderColor: 'white',
-    '&:hover': {
-        backgroundColor: '',
-    },
-    '&.MuiButton-root': {
-        borderColor: 'white !important',
-    },
-
-});
-
-export const CustomButton = styled(ButtonGroup)({
-    backgroundColor: 'red',
-    color: 'white',
-    width: 'fit-content',
-    '&:hover': {
-        backgroundColor: 'darkblue',
-    },
-    '&.MuiButton-root': {
-        borderColor: 'white !important',
-    },
-});
 
 export const CustomIcon = styled(IconButton)({
     color: "var(--primaryColor)",
@@ -190,6 +130,7 @@ export const CustomBox = styled(Box)({
     maxWidth: 400,
     mx: "auto",
 })
+
 export const CustomBox2 = styled(Box)({
     display: "flex",
     flexDirection: 'column',
@@ -211,12 +152,38 @@ export const CustomMenu = styled(Menu)({
 
 export const CardContentstyle = styled(CardContent)({
     display: "flex",
-    // alignItems:"center" , 
-    // justifyContent:"justify-between" , 
     gap: '20px',
     flexDirection: 'column'
 
 })
+
 export const MainButtonStyle = styled(Button)({
     color: 'white', background: 'var(--primaryColor)', width: '300px', height: '100%', border: 'none'
 })
+
+export const StripedDataGrid = styled(DataGrid)(() => ({
+    '& .MuiDataGrid-footerContainer': {
+        backgroundColor: '#ffffff !important',
+    },
+    '&.MuiDataGrid-root':{
+        backgroundColor: '#ffffff !important',
+    },
+    [`& .${gridClasses.row}.even`]: {
+        backgroundColor: '#7b7b7b12',
+        '&:hover': {
+            backgroundColor: alpha('#e52325', 0.8),
+            '@media (hover: none)': {
+                backgroundColor: 'transparent',
+            },
+        },
+        '&.Mui-selected': {
+            backgroundColor: alpha('#e52325', 0.8),
+            '&:hover': {
+                backgroundColor: alpha('#e52325', 0.6),
+                '@media (hover: none)': {
+                    backgroundColor: alpha('#e52325', 0.8),
+                },
+            },
+        },
+    },
+}));

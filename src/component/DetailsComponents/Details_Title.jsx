@@ -1,7 +1,7 @@
 import React from 'react'
 import TypographyCustom from '../TypographyCustom'
 
-function TitleDetailsComponent({ serviceName, creationDate }) {
+function Details_Title({ serviceName, creationDate }) {
   return (
     <div className='flex flex-col justify-center items-center gap-1'>
       <TypographyCustom variant="h3" gutterBottom sx={{ marginBottom: 0 , textAlign:'center'}} TypographyContent={serviceName} />
@@ -10,4 +10,4 @@ function TitleDetailsComponent({ serviceName, creationDate }) {
   )
 }
 
-export default TitleDetailsComponent
+export default Details_Title

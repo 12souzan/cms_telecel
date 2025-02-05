@@ -1,12 +1,11 @@
 import React, { useState, useContext } from "react";
-import {MenuItem, Box, Typography } from "@mui/material";
+import { MenuItem, Box, Typography } from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import  DataContext  from "../context/DataContext";
+import DataContext from "../context/DataContext";
 import { CustomBox, CustomIcon, CustomMenu, MainButtonStyle } from "../utils/style";
 
 const SortButtonWithArrows = () => {
-
   const {
     selectedOption,
     sortOrder,
@@ -26,16 +25,16 @@ const SortButtonWithArrows = () => {
 
   const handleSortOptionSelect = (option) => {
     changeSortOption(option);
-    handleClose(); 
+    handleClose();
   };
 
   const toggleSortOrder = () => {
-    changeSortOrder(sortOrder === "asc" ? "desc" : "asc"); 
+    changeSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
 
   return (
     <CustomBox>
-      <MainButtonStyle onClick={handleClick} className="!w-fit !px-3">
+      <MainButtonStyle onClick={handleClick} className="!px-3">
         Sort By
       </MainButtonStyle>
 
