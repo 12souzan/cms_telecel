@@ -34,7 +34,7 @@ const SortButtonWithArrows = () => {
 
   return (
     <CustomBox>
-      <MainButtonStyle onClick={handleClick} className="!px-3">
+      <MainButtonStyle onClick={handleClick} className="!px-3 !w-fit">
         Sort By
       </MainButtonStyle>
 
