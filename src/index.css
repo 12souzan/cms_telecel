@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+:root {
+    --primaryColor:#e52325 ;
+    --text-color:#757374 ;
+    --bg-color:#e523251c;
+    --title-font-size: 28px ;
+    --paragraphe-font-size: 18px;
+}
