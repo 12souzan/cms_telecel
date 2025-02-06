@@ -6,7 +6,8 @@ To set up and run your project, follow these steps:
 
 2- npm run dev 
 
-3- node server.cjs
+3- nodemon server.cjs
+
 
 
 Project Details:
