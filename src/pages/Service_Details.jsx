@@ -24,7 +24,7 @@ const Service_Details = () => {
   return (
     <div>
       {service ? (
-        <div className='py-10 px-5 flex flex-col py-[50px] h-[100%] items-center justify-center bg-[var(--bg-color)]'>
+        <div className='px-5 flex flex-col py-[50px] h-[100%] items-center justify-center bg-[var(--bg-color)]'>
           <TitleDetailsComponent
             serviceName={service.name}
             creationDate={service.lastUpdated}
