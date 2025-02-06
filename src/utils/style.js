@@ -1,6 +1,6 @@
 //mui styles
 
-import { alpha, Box, Button, CardContent, IconButton, Menu, styled} from "@mui/material";
+import { Box, Button, CardContent, IconButton, Menu, styled} from "@mui/material";
 import { DataGrid, gridClasses } from "@mui/x-data-grid";
 
 export const customBackButton = {
@@ -43,19 +43,15 @@ export const customEditButton = {
 }
 
 export const activeSwitch = {
-    ".css-17jyosd-MuiSwitch-thumb": {
+    ".Mui-checked+.MuiSwitch-track": {
         color: 'var(--primaryColor)'
     },
-    ".css-k5b5m0-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track": {
+    ".MuiSwitch-thumb": {
         background: 'var(--primaryColor)'
     }
 }
 
 export const paginationStyle = {
-    // '.Mui-selected ': {
-    //     backgroundColor: 'var(--primaryColor) !important',
-    //     color: '#ffffff',
-    // },
     '.Mui-selected': {
         backgroundColor: 'var(--primaryColor) !important',
         color: '#ffffff',
@@ -174,20 +170,5 @@ export const StripedDataGrid = styled(DataGrid)(() => ({
     },
     [`& .${gridClasses.row}.even`]: {
         backgroundColor: '#7b7b7b12',
-        // '&:hover': {
-        //     backgroundColor: alpha('#e52325', 0.8),
-        //     '@media (hover: none)': {
-        //         backgroundColor: 'transparent',
-        //     },
-        // },
-        // '&.Mui-selected': {
-        //     backgroundColor: alpha('#e52325', 0.8),
-        //     '&:hover': {
-        //         backgroundColor: alpha('#e52325', 0.6),
-        //         '@media (hover: none)': {
-        //             backgroundColor: alpha('#e52325', 0.8),
-        //         },
-        //     },
-        // },
     },
 }));
