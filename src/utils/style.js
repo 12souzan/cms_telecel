@@ -52,7 +52,7 @@ export const activeSwitch = {
 }
 
 export const paginationStyle = {
-    ' .css-1orqb88-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected ': {
+    '.Mui-selected ': {
         backgroundColor: 'var(--primaryColor) !important',
         color: '#ffffff',
     }
