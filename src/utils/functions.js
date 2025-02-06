@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 
 //for country (dropdown)
 export const handleCountryChange = (event, data, setData) => {
@@ -66,19 +65,6 @@ export const validateForm = (data) => {
       errors.website = "Invalid website URL";
     }
   }
-  // // Validate ratings 
-  // if (data.ratings && data.ratings.toString().trim() !== "") {
-  //   if (isNaN(Number(data.ratings))) {
-  //     errors.ratings = "Service Ratings must be a valid number";
-  //   }
-  // }
-  // // Validate reviews count
-  // if (data.reviewsCount && data.reviewsCount.toString().trim() !== "") {
-  //   if (isNaN(Number(data.reviewsCount))) {
-  //     errors.reviewsCount = "Service Reviews Count must be a valid number";
-  //   }
-  // }
-
   return errors;
 };
 

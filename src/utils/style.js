@@ -42,14 +42,7 @@ export const customEditButton = {
     },
 }
 
-export const activeSwitch = {
-    ".Mui-checked+.MuiSwitch-track": {
-        color: 'var(--primaryColor)'
-    },
-    ".MuiSwitch-thumb": {
-        background: 'var(--primaryColor)'
-    }
-}
+
 
 export const paginationStyle = {
     '.Mui-selected': {

@@ -31,12 +31,6 @@ const Details_Model = ({ open, onClose, initialValues }) => {
                     types={types}
                     setData={setData}
                     fields={fields}
-                    // sx={{
-                    //    ' .css-kw13he-MuiDialogContent-root': {
- 
-                    //         overflowY: 'visible !important',
-                    //     }
-                    // }}
                 />
             </DialogContent>
             <DialogActions>

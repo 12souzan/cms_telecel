@@ -1,7 +1,6 @@
 import { FormControlLabel, Switch, TextField } from '@mui/material';
 import React from 'react';
 import DropDown from './DropDown';
-import { activeSwitch } from '../utils/style';
 
 function FormInput({ handleChange, data, errors, countryOptions, types, setData, fields }) {
   return (
@@ -46,10 +45,10 @@ function FormInput({ handleChange, data, errors, countryOptions, types, setData,
                   control={
                     <Switch
                       checked={data[name] === 'active'}
+                      color="secondary" 
                       onChange={(e) =>
                         setData({ ...data, [name]: e.target.checked ? 'active' : 'inactive' })
                       }
-                      sx={activeSwitch}
                     />
                   }
                   label={data[name] === 'active' ? 'Active' : 'Inactive'}
