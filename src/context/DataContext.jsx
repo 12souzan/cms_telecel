@@ -20,6 +20,7 @@ export const DataProvider = ({ children }) => {
     const [sortOrder, setSortOrder] = useState("asc");
     const [loading, setLoading] = useState(true);
 
+
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);

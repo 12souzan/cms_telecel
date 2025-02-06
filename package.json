@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"nodemon server.cjs\"",
+    "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "NODE_ENV=production vite build && NODE_ENV=production node server.cjs"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

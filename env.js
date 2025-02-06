@@ -17,7 +17,7 @@ const INITIAL_VALUE = {
   additionalNotes: ''
 };
 
-const BaseUrl = "http://localhost:5000";
+const BaseUrl = "https://cms-backend-zeta-three.vercel.app";
 
 const fields = [
   { label: 'Company Name', name: 'name', type: 'text' },
