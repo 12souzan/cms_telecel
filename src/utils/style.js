@@ -52,7 +52,11 @@ export const activeSwitch = {
 }
 
 export const paginationStyle = {
-    '.Mui-selected ': {
+    // '.Mui-selected ': {
+    //     backgroundColor: 'var(--primaryColor) !important',
+    //     color: '#ffffff',
+    // },
+    '.Mui-selected': {
         backgroundColor: 'var(--primaryColor) !important',
         color: '#ffffff',
     }
